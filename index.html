@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trang chủ</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        color: white;
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .heart-btn {
+        font-size: 60px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .heart-btn:hover {
+        transform: scale(1.2);
+    }
+
+    .progress {
+        margin-top: 20px;
+        font-size: 22px;
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 24px;
+        animation: fall 3s linear forwards;
+        color: #ff2d55;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-50px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(110vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Trang chủ</h1>
+    <div class="heart-btn" onclick="addHeart()">❤️</div>
+    <div class="progress">Tiến độ: <span id="percent">0</span>%</div>
+</div>
+
+<script>
+    let percent = 0;
+
+    function addHeart() {
+        if (percent >= 100) return;
+
+        // Tạo tim rơi
+        for (let i = 0; i < 5; i++) {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (2 + Math.random() * 2) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 4000);
+        }
+
+        // Tăng %
+        percent += 10;
+        if (percent > 100) percent = 100;
+        document.getElementById("percent").innerText = percent;
+
+        // Đủ 100% → sang trang 2
+        if (percent === 100) {
+            setTimeout(() => {
+                window.location.href = "page2.html";
+            }, 1000);
+        }
+    }
+</script>
+
+</body>
+</html>
