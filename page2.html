@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Lời Yêu</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+
+    /* Nội dung trung tâm */
+    .center {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    /* Vòng xoay */
+    .orbit {
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+    }
+
+    /* Ảnh */
+    .orbit img {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        border: 3px solid white;
+    }
+
+    /* Vị trí ảnh trên vòng tròn */
+    .img1 { top: 0; left: 50%; transform: translateX(-50%); }
+    .img2 { right: 0; top: 50%; transform: translateY(-50%); }
+    .img3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+    .img4 { left: 0; top: 50%; transform: translateY(-50%); }
+</style>
+</head>
+
+<body>
+
+<!-- Vòng ảnh xoay -->
+<div class="orbit">
+    <img src="hinh-nen-tinh-yeu-1.jpg" class="img1">
+    <img src="hinh-nen-tinh-yeu-2.jpg" class="img2">
+    <img src="hinh-nen-tinh-yeu-3.jpg" class="img3">
+    <img src="hinh-nen-tinh-yeu-5.jpg" class="img4">
+</div>
+
+<!-- Nội dung giữa -->
+<div class="center">
+    <h1>💖 Anh yêu em 💖</h1>
+    <p>Mãi bên nhau nhé 🌸</p>
+</div>
+
+</body>
+</html>
